@@ -9,7 +9,7 @@ import google.generativeai as genai
 api_key = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=api_key)
 
-def get_gemini_response(input_text, pdf_content, prompt):
+def get_llm_response(input_text, pdf_content, prompt):
     try:
         model = genai.GenerativeModel('gemini-pro')
         response = model.generate_content([input_text, pdf_content, prompt])
@@ -82,7 +82,7 @@ if submit1 and uploaded_file is not None:
     pdf_content = input_pdf_setup(uploaded_file)
     if pdf_content:
         with st.spinner("Generating response..."):
-            response = get_gemini_response(input_text, pdf_content, input_prompt1)
+            response = get_llm_response(input_text, pdf_content, input_prompt1)
         st.subheader("The Response is")
         st.write(response)
 
@@ -90,7 +90,7 @@ elif submit2 and uploaded_file is not None:
     pdf_content = input_pdf_setup(uploaded_file)
     if pdf_content:
         with st.spinner("Generating response..."):
-            response = get_gemini_response(input_text, pdf_content, input_prompt2)
+            response = get_llm_response(input_text, pdf_content, input_prompt2)
         st.subheader("The Response is")
         st.write(response)
 
@@ -98,7 +98,7 @@ elif submit3 and uploaded_file is not None:
     pdf_content = input_pdf_setup(uploaded_file)
     if pdf_content:
         with st.spinner("Generating response..."):
-            response = get_gemini_response(input_text, pdf_content, input_prompt3)
+            response = get_llm_response(input_text, pdf_content, input_prompt3)
         st.subheader("The Response is")
         st.write(response)
 
@@ -106,7 +106,7 @@ elif submit4 and uploaded_file is not None:
     pdf_content = input_pdf_setup(uploaded_file)
     if pdf_content:
         with st.spinner("Generating response..."):
-            response = get_gemini_response(input_text, pdf_content, input_prompt4)
+            response = get_llm_response(input_text, pdf_content, input_prompt4)
         st.subheader("The Response is")
         st.write(response)
 
@@ -114,7 +114,7 @@ elif submit5 and uploaded_file is not None:
     pdf_content = input_pdf_setup(uploaded_file)
     if pdf_content:
         with st.spinner("Generating response..."):
-            response = get_gemini_response(input_promp, pdf_content, input_promp)
+            response = get_llm_response(input_promp, pdf_content, input_promp)
         st.subheader("The Response is")
         st.write(response)
 
