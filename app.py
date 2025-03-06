@@ -3,6 +3,7 @@ load_dotenv()
 import streamlit as st
 import os
 import fitz
+
 import google.generativeai as genai
 
 # Load API key from environment variables
@@ -11,7 +12,7 @@ genai.configure(api_key=api_key)
 
 def get_llm_response(input_text, pdf_content, prompt):
     try:
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.0-flash')
         response = model.generate_content([input_text, pdf_content, prompt])
         return response.text
     except Exception as e:
